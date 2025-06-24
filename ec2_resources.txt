@@ -1,0 +1,9 @@
+EC2 Resources in Boto3:
+- Image
+- Instance
+- NetworkInterface
+- SecurityGroup
+- Snapshot
+- Volume
+- VpcAddress (Elastic IP)
+

@@ -1,0 +1,11 @@
+resource_type,resource_id,instance_type,state,availability_zone,vpc_id,private_ip,public_ip,tags_Name,tags_Environment,tags_Owner,size_gb,volume_type,device,encrypted,iops,throughput,delete_on_termination,interface_type,status,subnet_id,security_groups,source_dest_check,volume_id,volume_size_gb,progress,start_time,description,tags_AutoBackup,tags_Schedule,name,architecture,platform,virtualization_type,root_device_type,creation_date,public,inbound_rules,outbound_rules,domain,network_interface_id,association_id
+EC2 Instance,i-1234567890abcdef0,t3.medium,running,us-east-1a,vpc-12345678,10.0.1.100,54.123.45.67,WebServer,Production,DevTeam,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+EBS Volume,vol-1234567890abcdef0,,in-use,,,,,RootVolume,Production,,20.0,gp3,/dev/sda1,True,3000.0,125.0,True,,,,,,,,,,,,,,,,,,,,,,,,
+EBS Volume,vol-abcdef1234567890,,in-use,,,,,DataVolume,Production,,100.0,gp3,/dev/sdf,True,3000.0,125.0,False,,,,,,,,,,,,,,,,,,,,,,,,
+Network Interface,eni-1234567890abcdef0,,,,vpc-12345678,10.0.1.100,54.123.45.67,Primary-ENI,,,,,,,,,,interface,in-use,subnet-12345678,"sg-12345678, sg-87654321",True,,,,,,,,,,,,,,,,,,,
+EBS Snapshot,snap-1234567890abcdef0,,completed,,,,,RootVolume-Backup,,,,,,True,,,,,,,,,vol-1234567890abcdef0,20.0,100%,2024-06-20T10:30:00.000Z,Automated backup of root volume,true,,,,,,,,,,,,,
+EBS Snapshot,snap-abcdef1234567890,,completed,,,,,DataVolume-Backup,,,,,,True,,,,,,,,,vol-abcdef1234567890,100.0,100%,2024-06-20T11:00:00.000Z,Weekly backup of data volume for compliance,,Weekly,,,,,,,,,,,,
+AMI,ami-1234567890abcdef0,,available,,,,,,,,,,,,,,,,,,,,,,,,"Canonical, Ubuntu, 22.04 LTS, amd64 jammy image build on 2024-03-01",,,ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-20240301,x86_64,Linux,hvm,ebs,2024-03-01T12:00:00.000Z,True,,,,,
+Security Group,sg-12345678,,,,vpc-12345678,,,WebServer-SG,Production,,,,,,,,,,,,,,,,,,Security group for web servers allowing HTTP and HTTPS traffic,,,web-server-sg,,,,,,,3.0,1.0,,,
+Security Group,sg-87654321,,,,vpc-12345678,,,SSH-Access-SG,Production,,,,,,,,,,,,,,,,,,Security group allowing SSH access from office IP ranges,,,ssh-access-sg,,,,,,,1.0,1.0,,,
+Elastic IP,eipalloc-1234567890abcdef0,,,,,10.0.1.100,54.123.45.67,WebServer-EIP,Production,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,vpc,eni-1234567890abcdef0,eipassoc-1234567890abcdef0
